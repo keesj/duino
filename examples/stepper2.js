@@ -8,18 +8,14 @@ var board = new arduino.Board({
 var stepper = new arduino.Stepper({
   board: board,
   st: 2,
+  pins: [6, 8, 7, 9]
 });
 
 board.on('ready', function(){
   	stepper.setPin1(10);
   	stepper.setPin1(10);
 
-	stepper.setInterface(stepper.InterfaceType.HALF4WIRE);
-  	stepper.setPin1(6);
-	stepper.setPin2(8);
-	stepper.setPin3(7);
-	stepper.setPin4(9);
-	stepper.enable(true);
+	stepper.attach();
 	stepper.setMaxSpeed(1000);
 	stepper.setAcceleration(10000);
 	stepper.setSpeed(1000);

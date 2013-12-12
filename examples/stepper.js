@@ -15,14 +15,8 @@ board.on('ready', function(){
   	stepper.setPin1(10);
   	stepper.setPin1(10);
 
-	/* Todo convert this back to a single javascript call */
-	stepper.setInterface(stepper.InterfaceType.HALF4WIRE);
-  	stepper.setPin1(10);
-	stepper.setPin2(12);
-	stepper.setPin3(11);
-	stepper.setPin4(13);
-	stepper.enable(true);
-
+	board.sendClearingBytes();
+	stepper.attach();
 	/* demo for Continuous mode */
 	stepper.setMaxSpeed(100);
 	stepper.setSpeed(100);
